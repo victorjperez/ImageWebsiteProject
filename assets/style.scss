@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+$primaryColor: white;
+$profileBorderColor: black;
+$errorColor: rgb(175, 21, 129);
+$logoFont: 'Pacifico', cursive;
+$mobileGridAreas: 
+    "headBar headBar headBar"
+    "bannerImg bannerImg bannerImg"
+    "thumbBar thumbBar thumbBar"
+    "profile profile profile"
+    "moreImages moreImages moreImages"
+    "moreImages moreImages moreImages"
+    "moreImages moreImages moreImages";
+$thumbImgCount: 3;
+
+@mixin profileStyle($scale) {
+    img {
+        float: left;
+        border: (2px * $scale) solid $profileBorderColor;
+        border-radius: 100%;
+        height: 30px * $scale;
+        margin: 8px * $scale 3px 0 3px;
+    }
+  }
+
+body {
+    //background-color: $primaryColor;
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 50px 250px repeat(5, 100px);
+    grid-template-areas: $mobileGridAreas;
+    margin: 0;
+    padding: 0;
+    justify-items: stretch;
+}
+.header {
+    grid-area: headBar;
+    background-color: $primaryColor;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    @include profileStyle(1);
+    h1 {
+        margin: 0 auto;
+        left:calc(50% - 80px);
+        position: absolute;
+        font-size: 25px;
+        font-family: $logoFont;
+    }
+}
+.full-img {
+    grid-area: bannerImg;
+    background-color: black;
+    text-align: center;
+    img {
+        object-fit: cover;
+        height: 100%;
+        z-index: 0;
+    }
+}
+.overlay {
+    grid-area: bannerImg;
+    background-color: rgba(0, 0, 0, 0.0);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+.thumb-bar {
+    grid-area: thumbBar;
+    background-color: $errorColor;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    img {
+        float: left;
+        object-fit: cover;
+        overflow: hidden;
+        height: 100%;
+        width: 100% / $thumbImgCount;
+    }
+}
+.bio {
+    grid-area: profile;
+    @include profileStyle(2); 
+    p {
+        font-family: 'Dosis', sans-serif;
+        font-size: 14px;
+        margin: 4% 5% 0 22%;
+
+    }
+
+}
+.images{
+    grid-area: moreImages;
+    background-color: teal;
+}

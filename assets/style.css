@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
+@import url("https://fonts.googleapis.com/css?family=Dosis");
+body {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 50px 250px repeat(5, 100px);
+  grid-template-areas: "headBar headBar headBar" "bannerImg bannerImg bannerImg" "thumbBar thumbBar thumbBar" "profile profile profile" "moreImages moreImages moreImages" "moreImages moreImages moreImages" "moreImages moreImages moreImages";
+  margin: 0;
+  padding: 0;
+  justify-items: stretch;
+}
+
+.header {
+  grid-area: headBar;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.header img {
+  float: left;
+  border: 2px solid black;
+  border-radius: 100%;
+  height: 30px;
+  margin: 8px 3px 0 3px;
+}
+
+.header h1 {
+  margin: 0 auto;
+  left: calc(50% - 80px);
+  position: absolute;
+  font-size: 25px;
+  font-family: "Pacifico", cursive;
+}
+
+.full-img {
+  grid-area: bannerImg;
+  background-color: black;
+  text-align: center;
+}
+
+.full-img img {
+  object-fit: cover;
+  height: 100%;
+  z-index: 0;
+}
+
+.overlay {
+  grid-area: bannerImg;
+  background-color: transparent;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.thumb-bar {
+  grid-area: thumbBar;
+  background-color: #af1581;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.thumb-bar img {
+  float: left;
+  object-fit: cover;
+  overflow: hidden;
+  height: 100%;
+  width: 33.33333%;
+}
+
+.bio {
+  grid-area: profile;
+}
+
+.bio img {
+  float: left;
+  border: 4px solid black;
+  border-radius: 100%;
+  height: 60px;
+  margin: 16px 3px 0 3px;
+}
+
+.bio p {
+  font-family: 'Dosis', sans-serif;
+  font-size: 14px;
+  margin: 4% 5% 0 22%;
+}
+
+.images {
+  grid-area: moreImages;
+  background-color: teal;
+}
+/*# sourceMappingURL=style.css.map */
