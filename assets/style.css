@@ -3,9 +3,9 @@
 body {
   display: grid;
   position: relative;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 0.5fr 2fr repeat(5, 1.2fr);
-  grid-template-areas: "headBar headBar headBar" "bannerImg bannerImg bannerImg" "thumbBar thumbBar thumbBar" "profile profile profile" "moreImages moreImages moreImages" "moreImages moreImages moreImages" "moreImages moreImages moreImages";
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 0.5fr 2fr repeat(2, 1.2fr) 4fr;
+  grid-template-areas: "headBar headBar headBar headBar headBar headBar" "bannerImg bannerImg bannerImg bannerImg bannerImg bannerImg" "thumbBar thumbBar thumbBar thumbBar thumbBar thumbBar" "profile profile profile profile profile profile" "moreImages moreImages moreImages moreImages moreImages moreImages";
   margin: 0;
   padding: 0;
   justify-items: stretch;
@@ -54,7 +54,6 @@ body {
 .thumb-bar {
   grid-area: thumbBar;
   background-color: #af1581;
-  border-bottom: 2px solid black;
 }
 
 .thumb-bar img {
@@ -72,14 +71,14 @@ body {
 }
 
 .bio img {
-  float: left;
-  border: 10px solid black;
+  border: 6px solid black;
   border-radius: 100%;
   height: 200px;
 }
 
 .bio img {
   margin: 5% 10px 0;
+  float: left;
 }
 
 .bio p {
@@ -101,9 +100,35 @@ body {
   border: 2px solid gray;
   margin: 0 auto 4% auto;
   max-width: 28%;
-  max-height: 31.5%;
+  max-height: 28%;
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+@media only screen and (min-width: 1200px) {
+  body {
+    grid-template-rows: 0.5fr 5fr 2fr repeat(2, 6fr);
+    grid-template-areas: "headBar headBar headBar headBar headBar headBar" "bannerImg bannerImg bannerImg profile profile profile" "thumbBar thumbBar thumbBar profile profile profile" ". moreImages moreImages moreImages moreImages ." ". moreImages moreImages moreImages moreImages .";
+  }
+  .bio {
+    margin-top: 10%;
+    text-align: center;
+  }
+  .bio img {
+    border: 7.5px solid black;
+    border-radius: 100%;
+    height: 250px;
+  }
+  .bio img {
+    margin: 0 auto;
+    float: none;
+  }
+  .bio p {
+    float: left;
+  }
+  .images {
+    margin-top: 4%;
+  }
 }
 /*# sourceMappingURL=style.css.map */

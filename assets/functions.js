@@ -15,7 +15,7 @@ for (var i = 0; i < 4; i++) {
     fullImg = newImg;
   } else
     thumbBar.appendChild(newImg);
-  newImg.onclick = function (e) {
+  newImg.onclick = function(e) {
     var imgSrc = e.target.getAttribute('src');
     e.target.setAttribute('src', fullImg.getAttribute('src'));
     displayImage(imgSrc);
